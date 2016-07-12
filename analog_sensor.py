@@ -98,10 +98,9 @@ class Analog_Sensor:
             delta = event - time.time()
             if delta > .2: time.sleep(delta)
             sched_dict[event] += [get_read()]
+            print('Time: {0} Channel: {1} Reading: {2}'.format(round(event),
+                                                               self.channel,
+                                                               sched_dict[event]))
         
         return sched_dict
             
-            
-        
-        
-
