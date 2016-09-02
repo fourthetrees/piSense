@@ -3,7 +3,6 @@ import sys, time, daemon
 class someDaemon(daemon.daemon):
 
     def loop(self):
-        sys.stdout = open('/home/forrest/Downloads/daemonOut.txt')
         while True:
             print('Daemon Running at Time: {0}'.format(time.time()))
             sys.stdout.flush()
@@ -14,7 +13,8 @@ class someDaemon(daemon.daemon):
 
 
 def Main():
-    daemonTest = someDaemon('/home/forrest/Downloads/daemon.pid',)
+    daemonTest = someDaemon('/tmp/raspiDaemonTest.pid',
+        outfile='/home/forrest/Code/daemonOut.txt',errfile='/home/forrest/Code/daemonErr.txt')
     daemonTest.start()
     time.sleep(60)
     daemonTest.stop()
