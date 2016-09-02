@@ -11,13 +11,11 @@ class someDaemon(daemon.daemon):
     def run(self):
         self.loop()
 
-
 def Main():
     daemonTest = someDaemon('/tmp/raspiDaemonTest.pid',
-        outfile='/home/forrest/Code/daemonOut.txt',errfile='/home/forrest/Code/daemonErr.txt')
+        outfile='~/piSense/tmp/daemon/daemonOut.txt',
+        errfile='~/piSense/tmp/daemon/daemonErr.txt')
     daemonTest.start()
-    time.sleep(60)
-    daemonTest.stop()
 
 if __name__ == '__main__':
     Main()

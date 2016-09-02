@@ -1,16 +1,17 @@
 """Generic linux daemon base class for python 3.x."""
 
 import sys, os, time, atexit, signal
+from os.path import expanduser
 
 class daemon:
 	"""A generic daemon class.
 
 	Usage: subclass the daemon class and override the run() method."""
-
+    # Unless contraindicated by other factors, place pid in /tmp
 	def __init__(self, pidfile,outfile=os.devnull,errfile=os.devnull):
 	    self.pidfile = pidfile
-	    self.outfile = outfile
-	    self.errfile = errfile
+	    self.outfile = expanduser(outfile)
+	    self.errfile = expanduser(errfile)
 	
 	def daemonize(self):
 		"""Deamonize class. UNIX double fork mechanism."""
@@ -44,14 +45,8 @@ class daemon:
 		sys.stdout.flush()
 		sys.stderr.flush()
 		si = open(os.devnull, 'r')
-		so = open(os.devnull, 'a+')
-		se = open(os.devnull, 'a+')
-		
-		#tempshit
-		si = open(os.devnull, 'r')
-		so = open('/home/forrest/Code/daemonOut.txt','a+')
-		se = open('/home/forrest/Code/daemonErr.txt','a+')
-		#tempshit
+		so = open(self.outfile, 'a+')
+		se = open(self.errfile, 'a+')
 
 		os.dup2(si.fileno(), sys.stdin.fileno())
 		os.dup2(so.fileno(), sys.stdout.fileno())
