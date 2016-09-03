@@ -1,0 +1,24 @@
+{
+"start":"someUnixTime",
+"deployment":"someIdentifier",
+"sensors":{
+    "therm001":{
+        "type":"analogSensor",
+        "address":"someInt",
+        "interval":"someFloat",
+        "args":{
+            "arg1":"someArg",
+            "arg2":"someArg"
+        }
+    },
+    "i2c001":{
+        "type":"i2cSensor",
+        "address":"someBytes",
+        "interval":"someFloat",
+        "args":{
+            "arg1":"someArg",
+            "arg2":"someArg"
+        }
+    }
+}
+}
