@@ -1,0 +1,23 @@
+--Misc. Project Info--
+Project Name: piSense
+Intended OS: Raspbian Jessie Lite
+Intended Hardware: Raspberry Pi (preferred model tbd)
+Language: Python3
+Sensor Types: I2C,Analog,Serial
+Local Database: sqlite
+Remote Upload: ftp
+Remote Access: ssh
+Remot Administration: JSON encoded deployment files
+--Workflow--
+Sensor processes handled by daemon scripts.
+Regular asynchronous updating of sglite db by sensor daemons.
+Periodic upload of new entries to remote server via cron script.
+JSON analysis, scheduling, & process spinoff by startup script.
+Periodic cleanup & checks by cron script.
+Cleanup & shutdown calls by shutdown script.
+--piSense Server Ideas--
+Config/Deployment db (sqlite).
+ftp directory system based on deployment scheme.
+Worker scripts for db interface, upkeep, & upload.
+Worker scripts for email warnings on apparent sys failures.
+Cron script for intelligent worker spinup.
