@@ -1,0 +1,8 @@
+sqliteInterface:
+    Upload a lost of row tuples:
+    >>> obj.pushRows(rows)
+
+    Pull a range of values:
+    >>> obj.pullRange(start,stop[,column])
+
+    >>>
