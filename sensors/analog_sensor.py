@@ -5,18 +5,16 @@ import time
 # Object Class for Analog Sensor Reading via MCP3008
 # - Provides various reading, conversion, and handling options.
 # - Supports thread-based parallel logging on all channels via hardware lock.
-class Analog_Sensor:  
-
-    
+class Analog_Sensor:
 
     # Global SPI Variable -- used by all sensor instances.
-    spi = sd.SpiDev() 
+    spi = sd.SpiDev()
     spi.open(0,0)
 
 
     # Obj-specific variables
     # - Defines general operating parameters to be followed by the read methods.
-    def __init__(self,channel,scalar=float(100/1023),offset=0,smoothing=None,lock=None,vref=3.3):  
+    def __init__(self,channel,scalar=float(100/1023),offset=0,smoothing=None,lock=None,vref=3.3):
         if  channel > 7 or channel < 0:
             raise Exception('Channel value must be in range 0-7.')
         self.channel = channel  # Channel to be read from ADC -- Required Argument
@@ -51,7 +49,7 @@ class Analog_Sensor:
     # - Called internally when smoothing value is given.
     # - Takes average over n .2 second intervals (n=smoothing value).
     # - Not intended for direct call by client.
-    def avg_bits(self):  
+    def avg_bits(self):
         if not self.smoothing: raise Exception('Smoothing Value Not Provided.')  # r_pi edit:  Added exception for avg call w/o smoothing value
         bit_stack = []
         for s in range(self.smoothing):  # r_pi edit:  added 'self' to smoothing
@@ -64,7 +62,7 @@ class Analog_Sensor:
     # Voltage reading function.
     # - Converts bits to voltage based on current vref value.
     # - Function can optionally be passed a dict if {time:[reading]} output is needed.
-    def get_volts(self,val_dict=None):  
+    def get_volts(self,val_dict=None):
         if self.smoothing: bits = self.avg_bits()  # r_pi edit:  added 'self' to smoothing
         else: bits = self.get_bits()
         raw_volts = (bits * float(self.vref))/float(1023)
@@ -76,7 +74,7 @@ class Analog_Sensor:
     # Primary read function
     # - Returns a converted reading based on y = <scalar>*x + <offset> formula.
     # - Function can optionally be passed a dict if {time:[reading]} output is needed.
-    def read(self,val_dict=None):  
+    def read(self,val_dict=None):
         if self.smoothing: bits = self.avg_bits()  # r_pi edit:  added 'self' to smoothing
         else: bits = self.get_bits()
         val = (bits * self.scalar) + self.offset
@@ -101,6 +99,6 @@ class Analog_Sensor:
             print('Time: {0} Channel: {1} Reading: {2}'.format(round(event),
                                                                self.channel,
                                                                sched_dict[event]))
-        
+
         return sched_dict
-            
+
