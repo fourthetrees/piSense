@@ -1,6 +1,7 @@
 {
-"start":"someUnixTime",
 "deployment":"someIdentifier",
+"start":"someUnixTime",
+"server": "128.171.61.120",
 "sensors":{
     "therm001":{
         "type":"analogSensor",
