@@ -26,13 +26,13 @@ def raspi(deployment):
 
 # Placeholder storage function
 def store_readings(deployment,data):
-    filename = '{}.json'.format(deployment)
+    filename = 'tmp/{}.json'.format(deployment)
     with open(filename,'w') as fp:
         json.dump(data,fp)
 
 # Placeholder deployment update function
 def get_deployment(deployment):
-    filename = '{}.json'.format(deployment)
+    filename = 'tmp/{}.json'.format(deployment)
     with open(filename,'r') as fp:
         data = fp.read()
     return data
