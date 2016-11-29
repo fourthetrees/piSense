@@ -4,15 +4,15 @@ import time
 
 def read_adc():
     with spi() as sc:
-        data = sc.read()
-    return data
+        ch0,ch7 = sc.read(0),sc.read(7)
+    return ch0,ch7
 
 def Main():
     while True:
         i = input('Read ADC? (y/n)')
         if 'n' in i: return
-        print('Ch_0: ',read_adc(0))
-        print('Ch_7: ',read_adc(7))
+        ch0,ch7 = read_adc()
+        print('Ch_0: {} Ch_7: {}'.format(ch0,ch7))
 
 if __name__ == '__main__':
     Main()
