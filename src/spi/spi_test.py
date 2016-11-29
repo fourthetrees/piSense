@@ -11,7 +11,8 @@ def Main():
     while True:
         i = input('Read ADC? (y/n)')
         if 'n' in i: return
-        print(read_adc())
+        print('Ch_0: ',read_adc(0))
+        print('Ch_7: ',read_adc(7))
 
 if __name__ == '__main__':
     Main()
