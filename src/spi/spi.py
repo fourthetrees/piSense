@@ -10,7 +10,7 @@ class spi:
 
     def read(self,channel,lock=None):
         if lock: lock.acquire()
-        adc = self.spi.xfer2([1,(8+self.channel)<<4,0])
+        adc = self.spi.xfer2([1,(8+channel)<<4,0])
         bits = ((adc[1]&3) << 8) + adc[2]
         if lock: lock.release()
         return bits
