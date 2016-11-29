@@ -6,6 +6,7 @@ class spi:
     def __enter__(self,bus=0,device=0):
         self.spi = spidev.SpiDev()
         self.spi.open(bus,device)
+        return self
 
     def read(self,channel,lock=None):
         if lock: lock.acquire()
