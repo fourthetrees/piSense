@@ -35,9 +35,10 @@ def mklog(spi,ch,time,avg,lock):
 # Args: channel num, uxtime schedule, [average num], [threading lock]
 # Returns a dict of form: {timestamp: value}
 def log(ch,sched,avg=1,lock=None):
-    with open('calibrations/thermristor.json') as fp:
+    with open('calibration/thermristor.json') as fp:
         cal = json.load(fp)
+    fmt = lambda x: x * cal['scalar'] + cal['offset']
     sched = sorted([s for s in sched if s > time.time()])
     with mcp() as spi:
-        return {t: mklog(spi,ch,t,avg,lock) for t in sched}
+        return {t: fmt(mklog(spi,ch,t,avg,lock)) for t in sched}
 
