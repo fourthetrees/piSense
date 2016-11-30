@@ -24,8 +24,8 @@ def nlread(spi,ch,avg):
     return reading / avg
 
 # Generate a log/reading at a specific time.
-def mklog(spi,ch,time,avg,lock):
-    delta = time - time.time()
+def mklog(spi,ch,t,avg,lock):
+    delta = t - time.time()
     reading = 0.0
     if delta > 0.1: time.sleep(delta)
     if lock: return lkread(spi,ch,avg,lock)
