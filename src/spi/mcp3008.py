@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import spidev
 
-class spi:
+class mcp:
 
     def __enter__(self,bus=0,device=0):
         self.spi = spidev.SpiDev()
