@@ -3,26 +3,8 @@ from mcp3008 import mcp
 import time
 import json
 
-# Execute a reading w/ thread lock.
-def lkread(spi,ch,avg,lock):
-    reading = 0.0
-    for i in range(avg-1):
-        with lock:
-            reading += spi.read(ch)
-        time.sleep(0.3)
-    with lock:
-        reading += spi.read(ch)
-    return reading / avg
-
-# Execute a reading w/o thread lock.
-def nlread(spi,ch,avg):
-    reading = 0.0
-    for i in range(avg-1):
-        reading += spi.read(ch)
-        time.sleep(0.3)
-    reading += spi.read(ch)
-    return reading / avg
-
+# Logging script for thermristors connected to the MCP3008.
+# Calibration saved in file: (__file__)/calibration/thermristor.json
 # Get a reading.
 def read_val(spi,ch,avg,lock):
     reading = 0.0
@@ -30,9 +12,9 @@ def read_val(spi,ch,avg,lock):
         reading += spi.read(ch,lock=lock)
         time.sleep(0.3)
     reading += spi.read(ch,lock=lock)
-    return reading / avg
+    return round(reading/avg,2)
 
-# Generate a log/reading at a specific time.
+# Execute a log/reading at a specific time.
 def mklog(spi,ch,t,avg,lock):
     delta = t - time.time()
     reading = 0.0
@@ -50,5 +32,5 @@ def log(ch,sched,avg=1,lock=None):
     fmt = lambda x: x * cal['scalar'] + cal['offset']
     sched = sorted([s for s in sched if s > time.time()])
     with mcp() as spi:
-        return {t: fmt(mklog(spi,ch,t,avg,lock)) for t in sched}
+        return {int(t): fmt(mklog(spi,ch,t,avg,lock)) for t in sched}
 
