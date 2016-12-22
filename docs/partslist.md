@@ -34,9 +34,5 @@
 
 - [Signal Wire](http://a.co/gpM1VhK)
 
-- [Heat Shrink](http://a.co/2NIpFR8
-- [3.5mm Jacks](https://www.adafruit.com/products/1800)
+- [Heat Shrink](http://a.co/2NIpFR8)
 
-- [3.5mm Ports](https://www.adafruit.com/products/1699)
-
- )
