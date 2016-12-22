@@ -1,0 +1,24 @@
+{
+"deployment": "someIdentifier",
+"start": "someUnixTime",
+"server": "128.171.61.120",
+"interval": "someUploadInterval",
+"programs": {
+    "analog": {
+	"class": "analog",
+        "type": "thermistor",
+        "args": {
+            "arg1": "someArg",
+            "arg2": "someArg"
+        }
+    },
+    "i2c": {
+	"class": "i2c",
+        "type": "humidity",
+        "args": {
+            "arg1": "someArg",
+            "arg2": "someArg"
+        }
+    }
+}
+}

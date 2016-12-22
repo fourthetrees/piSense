@@ -27,10 +27,3 @@ def run(pgrm,args,errmax):
 def spinup(programs,errmax=4):
     for p in programs:
         Thread(target=run,args=(p,programs[p],errmax)).start()
-
-def Main():
-    programs = {'child_1.py':['hello','world'],'child_2.py':['hello','world']}
-    spinup(programs)
-
-if __name__ == '__main__':
-    Main()
