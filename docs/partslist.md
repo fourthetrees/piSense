@@ -2,9 +2,9 @@
 
 ## Core Components
 
-- [Raspberry Pi 3](https://www.adafruit.com/product/3055)
+- [Raspberry Pi 3](https://www.adafruit.com/product/3055) -- Where the magic happens.
 
-- [3D Printer Filament](https://www.proto-pasta.com)
+- [3D Printer Filament](https://www.proto-pasta.com) -- For producing housing & mounting structures.
 
 - [Perfboard](https://www.adafruit.com/products/2670)
 
