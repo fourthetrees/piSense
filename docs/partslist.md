@@ -6,13 +6,13 @@
 
 - [3D Printer Filament](https://www.proto-pasta.com) -- For producing housing & mounting structures.
 
-- [Perfboard](https://www.adafruit.com/products/2670)
+- [Perfboard](https://www.adafruit.com/products/2670) -- For internal circuitry.
 
-- [Solid-Core Wire](https://www.adafruit.com/products/1311)
+- [Solid-Core Wire](https://www.adafruit.com/products/1311) -- For internal circuitry.
 
-- [A.D.C.](https://www.adafruit.com/product/856)
+- [A.D.C.](https://www.adafruit.com/product/856) -- Required for usage of alla nalalog sensors.
 
-- [Terminal Blocks](https://www.adafruit.com/products/2141)
+- [Terminal Blocks](https://www.adafruit.com/products/2141) -- Minimum requirement for sensor attachment.
 
 
 ## Sensors
