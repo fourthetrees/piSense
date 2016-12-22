@@ -1,4 +1,5 @@
 {
-    "ident":"piName",
+    "ident": "piName",
+    "portal": "ip_addr/some_uri/",
     "admin": "someAdmin@administrative.site"
 }

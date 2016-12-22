@@ -14,10 +14,10 @@ def launch(pgrm,args):
 # Returns number of restarts upon success.
 # Raises exception if `errmax`value is exceeded.
 def run(pgrm,args,errmax):
-    for errcount in range(errmax):
+    for e in range(errmax):
         pid = launch(pgrm,args)
         _,code = os.waitpid(pid,0)
-        if not code: return errcount
+        if not code: return
     raise Exception('errcount exceeded for {}'.format(pgrm))
 
 
