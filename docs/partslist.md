@@ -10,7 +10,7 @@
 
 - [Solid-Core Wire](https://www.adafruit.com/products/1311) -- For internal circuitry.
 
-- [A.D.C.](https://www.adafruit.com/product/856) -- Required for usage of alla nalalog sensors.
+- [A.D.C.](https://www.adafruit.com/product/856) -- Required for usage of analog sensors.
 
 - [Terminal Blocks](https://www.adafruit.com/products/2141) -- Minimum requirement for sensor attachment.
 
