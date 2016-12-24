@@ -25,6 +25,8 @@
 
 - [Thermistors](https://www.adafruit.com/products/372) -- Basci/Cheap temperature measurement.
 
+- [Hot-Wire Anemometer](https://moderndevice.com/product/wind-sensor/) -- Simple analog anemometer (see github repo for logarithmic conversion info).
+
 
 ## Misc. Materials
 
