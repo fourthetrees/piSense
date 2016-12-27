@@ -30,6 +30,8 @@
 
 ## Misc. Materials
 
+- [Serial Cable](https://www.adafruit.com/products/70) -- For opening a serial connection to raspi.
+
 - [3.5mm Jacks](https://www.adafruit.com/products/1800) -- Higher-quality alternative to terminal-block based sensor attachment.
 
 - [3.5mm Ports](https://www.adafruit.com/products/1699) -- Higher-quality alternative to terminal-block based sensor attachment.
